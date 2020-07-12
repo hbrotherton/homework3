@@ -42,58 +42,71 @@ function generatePassword(){
   }
 
   // if statement for 4 confirmed criteria
-  if (confirmUpper && confirmLower && confirmNumber && confirmSpecial) {
+  else if (confirmUpper && confirmLower && confirmNumber && confirmSpecial) {
     var choices = alphaUpperArray.concat(alphaArray, numberArray, specialArray)
   }
   
   // if statements for 3 confirmed criteria
-  if (confirmUpper && confirmLower && confirmNumber) {
+  else if (confirmUpper && confirmLower && confirmNumber) {
     var choices = alphaUpperArray.concat(alphaArray, numberArray)
   }
-  if (confirmUpper && confirmLower && confirmSpecial) {
+  else if (confirmUpper && confirmLower && confirmSpecial) {
     var choices = alphaUpperArray.concat(alphaArray, specialArray)
   }
-  if (confirmUpper && confirmNumber && confirmSpecial) {
+  else if (confirmUpper && confirmNumber && confirmSpecial) {
     var choices = alphaUpperArray.concat(numberArray, specialArray)
   }
-  if (confirmLower && confirmNumber && confirmSpecial) {
+  else if (confirmLower && confirmNumber && confirmSpecial) {
     var choices = alphaArray.concat(numberArray, specialArray)
   }
 
   // if statements for 2 confirmed criteria
-  if (confirmUpper && confirmLower) {
+  else if (confirmUpper && confirmLower) {
     var choices = alphaUpperArray.concat(alphaArray)
   }
-  if (confirmUpper && confirmNumber) {
+  else if (confirmUpper && confirmNumber) {
     var choices = alphaUpperArray.concat(numberArray)
   }
-  if (confirmUpper && confirmSpecial) {
+  else if (confirmUpper && confirmSpecial) {
     var choices = alphaUpperArray.concat(specialArray)
   }
-  if (confirmLower && confirmNumber) {
+  else if (confirmLower && confirmNumber) {
     var choices = alphaArray.concat(numberArray)
   }
-  if (confirmLower && confirmSpecial) {
+  else if (confirmLower && confirmSpecial) {
     var choices = alphaArray.concat(specialArray)
   }
-  if (confirmNumber && confirmSpecial) {
+  else if (confirmNumber && confirmSpecial) {
     var choices = numberArray.concat(specialArray)
   }
 
   // if statements for 1 confirmed criterion
-  if (confirmUpper) {
+  else if (confirmUpper) {
     var choices = alphaUpperArray
   }
-  if (confirmLower) {
+  else if (confirmLower) {
     var choices = alphaArray
   }
-  if (confirmNumber) {
+  else if (confirmNumber) {
     var choices = numberArray
   }
-  if (confirmSpecial) {
+  else if (confirmSpecial) {
     var choices = specialArray
-  }
+  };
 
+  // make password variable an empty array for a placeholder
+  var password = [];
+
+  // function to do random selection of variables and append them to the password empty array
+  for (var i = 0; i < passwordCharLength; i++) {
+    var finalChoices = choices[Math.floor(Math.random() * choices.length)];
+    password.push(finalChoices);
+  };
+
+  console.log(password)
+
+  //Join final password to the password array
+  var finalPassword = password.join("");
 
 
 }
