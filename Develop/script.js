@@ -104,9 +104,12 @@ function generatePassword(){
   };
 
   var finalPassword = password.join("");
+  
+  //console.log shows it in the console, but return brings the value and ends the function so it can be grabbed by password variable in function writePassword
 
-  console.log(finalPassword)
-
+  // console.log(finalPassword)
+  return finalPassword;
+  
 };
 
 
